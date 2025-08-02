@@ -1,0 +1,148 @@
+import { Category, Ticket, Comment, User } from '../types/types';
+
+export const mockCategories: Category[] = [
+  {
+    id: '1',
+    name: 'Technical Support',
+    description: 'Hardware and software issues',
+    color: '#3B82F6',
+    createdAt: new Date('2024-01-01'),
+  },
+  {
+    id: '2',
+    name: 'Account Issues',
+    description: 'Login and account-related problems',
+    color: '#10B981',
+    createdAt: new Date('2024-01-01'),
+  },
+  {
+    id: '3',
+    name: 'Billing',
+    description: 'Payment and subscription issues',
+    color: '#F59E0B',
+    createdAt: new Date('2024-01-01'),
+  },
+  {
+    id: '4',
+    name: 'Feature Request',
+    description: 'New feature suggestions',
+    color: '#8B5CF6',
+    createdAt: new Date('2024-01-01'),
+  },
+];
+
+export const mockUsers: User[] = [
+  {
+    id: '1',
+    email: 'admin@quickdesk.com',
+    name: 'Admin User',
+    role: 'admin',
+    createdAt: new Date('2024-01-01'),
+  },
+  {
+    id: '2',
+    email: 'agent@quickdesk.com',
+    name: 'Support Agent',
+    role: 'agent',
+    createdAt: new Date('2024-01-01'),
+  },
+  {
+    id: '3',
+    email: 'user@quickdesk.com',
+    name: 'End User',
+    role: 'user',
+    createdAt: new Date('2024-01-01'),
+  },
+  {
+    id: '4',
+    email: 'john.doe@example.com',
+    name: 'John Doe',
+    role: 'user',
+    createdAt: new Date('2024-01-15'),
+  },
+];
+
+export const mockTickets: Ticket[] = [
+  {
+    id: '1',
+    subject: 'Cannot access my account',
+    description: 'I am unable to log into my account. Getting error message "Invalid credentials" even with correct password.',
+    category: mockCategories[1],
+    status: 'open',
+    priority: 'high',
+    createdBy: mockUsers[3],
+    assignedTo: mockUsers[1],
+    upvotes: 3,
+    downvotes: 0,
+    createdAt: new Date('2024-01-20'),
+    updatedAt: new Date('2024-01-20'),
+  },
+  {
+    id: '2',
+    subject: 'Software installation fails',
+    description: 'The new software update keeps failing during installation. Error code: 0x80070005',
+    category: mockCategories[0],
+    status: 'in-progress',
+    priority: 'medium',
+    createdBy: mockUsers[2],
+    assignedTo: mockUsers[1],
+    upvotes: 5,
+    downvotes: 1,
+    createdAt: new Date('2024-01-18'),
+    updatedAt: new Date('2024-01-19'),
+  },
+  {
+    id: '3',
+    subject: 'Billing discrepancy',
+    description: 'My latest invoice shows charges that don\'t match my subscription plan.',
+    category: mockCategories[2],
+    status: 'resolved',
+    priority: 'low',
+    createdBy: mockUsers[3],
+    assignedTo: mockUsers[1],
+    upvotes: 1,
+    downvotes: 0,
+    createdAt: new Date('2024-01-15'),
+    updatedAt: new Date('2024-01-17'),
+  },
+  {
+    id: '4',
+    subject: 'Dark mode feature request',
+    description: 'Would love to see a dark mode option in the application for better user experience.',
+    category: mockCategories[3],
+    status: 'open',
+    priority: 'low',
+    createdBy: mockUsers[2],
+    upvotes: 12,
+    downvotes: 2,
+    createdAt: new Date('2024-01-16'),
+    updatedAt: new Date('2024-01-16'),
+  },
+];
+
+export const mockComments: Comment[] = [
+  {
+    id: '1',
+    ticketId: '1',
+    content: 'Thank you for reporting this issue. I\'m looking into this now.',
+    author: mockUsers[1],
+    isInternal: false,
+    createdAt: new Date('2024-01-20T10:30:00'),
+  },
+  {
+    id: '2',
+    ticketId: '2',
+    content: 'I\'ve reproduced the issue. Working on a fix.',
+    author: mockUsers[1],
+    isInternal: false,
+    createdAt: new Date('2024-01-19T14:15:00'),
+  },
+  {
+    id: '3',
+    ticketId: '2',
+    content: 'Internal note: This might be related to the Windows Update KB5034441',
+    author: mockUsers[1],
+    isInternal: true,
+    createdAt: new Date('2024-01-19T14:20:00'),
+  },
+];
